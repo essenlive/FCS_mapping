@@ -1,0 +1,26 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "airtable": "^0.5.0",
+    "airtable-plus": "^1.0.4",
+    "axios": "^0.17.1",
+    "dotenv": "^8.2.0",
+    "mapbox": "^1.0.0-beta10",
+    "mapbox-gl": "^1.6.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-mapbox-gl": "^4.8.2",
+    "react-scripts": "0.9.5",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "coordinates": "node ./getCoordinates.js"
+  }
+}

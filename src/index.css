@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.mapboxgl-popup-content {
+  width: 300px;
+    border-radius: 1.5rem;
+}
+
+.mapboxgl-popup-content img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.mapboxgl-popup-content .placeTags{
+    margin: 0.5rem 0;
+}
