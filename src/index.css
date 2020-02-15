@@ -5,8 +5,9 @@ body {
 }
 
 .mapboxgl-popup-content {
-  width: 300px;
-    border-radius: 1.5rem;
+    width: 300px;
+    border-radius: 1rem;;
+    box-shadow: 0px 5px 5px #888888;
 }
 
 .mapboxgl-popup-content img{
@@ -17,3 +18,11 @@ body {
 .mapboxgl-popup-content .placeTags{
     margin: 0.5rem 0;
 }
+
+.mapboxgl-popup-content .placeTags .Ressourcerie{     background-color: #874B97 !important; color: white !important }
+.mapboxgl-popup-content .placeTags .Designer{     background-color: #E31D39 !important; color: white !important}
+.mapboxgl-popup-content .placeTags .Fabrication{     background-color: #263D8C !important; color: white !important}
+.mapboxgl-popup-content .placeTags .Vente{     background-color: #E49D03 !important;}
+.mapboxgl-popup-content .placeTags .Public{     background-color: #D8D300 !important;}
+.mapboxgl-popup-content .placeTags .Industrialisation{     background-color: #53AF32 !important;}
+.mapboxgl-popup-content .placeTags .Incubation{     background-color: #1AA056 !important; color: white !important}
