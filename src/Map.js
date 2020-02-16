@@ -18,8 +18,8 @@ const mapbox = {
   token: 'pk.eyJ1IjoiZXNzZW4iLCJhIjoiY2p0MW1qN3VoMDk3OTN5cGd5c2Z1cHp0ZyJ9.75OcltBPnS9HdMtPoSXG0Q',
   style: 'mapbox://styles/essen/cjtsfp7dc00201fmfl8jllc3k',
 };
-mapboxgl.accessToken = mapbox.token;
-const MapBox = ReactMap(mapbox.token);
+
+const MapBox = ReactMap({accessToken : mapbox.token});
 var client = new MapboxClient(mapbox.token);
 
 // Create an image for the Layer
