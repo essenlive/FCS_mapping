@@ -1,7 +1,57 @@
+
+@font-face {
+    font-family: 'Grotesk';
+    font-weight: 900;
+    src: local('Grotesk'), url(./assets/fonts/Grotesk.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Bitter';
+    font-weight: 500;
+    src: local('Bitter-Regular'), url(./assets/fonts/Bitter-Regular.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Bitter';
+    font-weight: 900;
+    src: local('Bitter-Bold'), url(./assets/fonts/Bitter-Bold.otf) format('opentype');
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Bitter;
+    background-color: #f9fbff;
+  font-size: 15px;
+}
+
+h1{
+    font-size: 38px;
+    font-family: Grotesk;
+    text-transform: uppercase;
+    position: relative;
+}
+h1::after{
+    content: "";
+    width: 25%;
+    margin-top: 2rem;
+    height: 5px;
+    top: 1rem;
+    display: block;
+    background-color: #000000;
+}
+
+h2{
+    font-family: Grotesk;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+
+#root{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .mapboxgl-popup-content {
@@ -19,10 +69,40 @@ body {
     margin: 0.5rem 0;
 }
 
-.mapboxgl-popup-content .placeTags .Ressourcerie{     background-color: #874B97 !important; color: white !important }
-.mapboxgl-popup-content .placeTags .Designer{     background-color: #E31D39 !important; color: white !important}
-.mapboxgl-popup-content .placeTags .Fabrication{     background-color: #263D8C !important; color: white !important}
-.mapboxgl-popup-content .placeTags .Vente{     background-color: #E49D03 !important;}
-.mapboxgl-popup-content .placeTags .Public{     background-color: #D8D300 !important;}
-.mapboxgl-popup-content .placeTags .Industrialisation{     background-color: #53AF32 !important;}
-.mapboxgl-popup-content .placeTags .Incubation{     background-color: #1AA056 !important; color: white !important}
+.mapboxgl-popup-content .placeTags .resources{     background-color: #874B97 !important; color: white !important }
+.mapboxgl-popup-content .placeTags .designers{     background-color: #E31D39 !important; color: white !important}
+.mapboxgl-popup-content .placeTags .fabrication{     background-color: #263D8C !important; color: white !important}
+.mapboxgl-popup-content .placeTags .stores{     background-color: #E49D03 !important; color: white !important;}
+.mapboxgl-popup-content .placeTags .partners{     background-color: #D8D300 !important;}
+.mapboxgl-popup-content .placeTags .industrials{     background-color: #53AF32 !important;color: white !important;}
+.mapboxgl-popup-content .placeTags .incubators{     background-color: #1AA056 !important; color: white !important}
+.mapboxgl-popup-content .placeTags .research{     background-color: #1AA056 !important; color: white !important}
+
+.presentation {
+    width: 40%;
+    min-width: 450px;
+    overflow: hidden;
+    background-color: #f9fbff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.map {
+    width: 60%;
+    min-width: 450px;
+    overflow: hidden;
+}
+
+.contribute{
+    border: none;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom : 0;
+    border-radius: 1rem;;
+    box-shadow: 0px 5px 5px #888888;
+    display: none !important;
+}

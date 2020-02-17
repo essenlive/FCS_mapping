@@ -16,23 +16,44 @@ const mapbox = {
 var client = new MapboxClient(mapbox.token);
 
 (async () => {
+    let places = []
     try {
-        let places = []
         let records = await base("Workshop").select({ view: "all" }).firstPage()
         
         for (const record of records) {
 
-            try {
-                let coordinates = await client.geocodeForward(record.fields.Adresse);
-                console.log(`${record.fields.Nom}, [${coordinates.entity.features[0].center}]`);
-                places.push({
-                    name: record.fields.Nom,
-                    coordinates: coordinates.entity.features[0].center
-                })
-            } catch (error) {
-                console.log(`${record.fields.Nom}, null`);
+            if (typeof(record.fields.Longitude) === "undefined"){
+
+                
+                try {
+                    let coordinates = await client.geocodeForward(record.fields.Adresse);
+                    console.log(`${record.fields.Nom}, [${coordinates.entity.features[0].center}]`);
+                    places.push({
+                        name: record.fields.Nom,
+                        coordinates: coordinates.entity.features[0].center
+                    })
+                } catch (error) {
+                    places.push({
+                        name: record.fields.Nom,
+                        coordinates: [null,null]
+                    })
+                }
             }
         };
-        console.log(places)
     } catch (error) { console.log(error); }
+
+    let sortedPlaces = places.sort(function (a, b) {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    console.log(sortedPlaces);
+    for (const place of sortedPlaces) {
+        console.log(`${place.name}, ${place.coordinates[0]}, ${place.coordinates[1]}`);
+        
+        
+    }
+
+    
 })();
