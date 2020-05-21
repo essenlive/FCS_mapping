@@ -15,13 +15,12 @@
     src: local('Bitter-Bold'), url(./assets/fonts/Bitter-Bold.otf) format('opentype');
 }
 
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Bitter;
+    margin: 0;
+    padding: 0;
+    font-family: Bitter;
     background-color: #f9fbff;
-  font-size: 15px;
+    font-size: 15px;
 }
 
 h1{
@@ -69,6 +68,8 @@ h2{
     margin: 0.5rem 0;
 }
 
+.mapboxgl-popup-content .placeTags .label { text-transform: capitalize; }
+
 .mapboxgl-popup-content .placeTags .resources{     background-color: #874B97 !important; color: white !important }
 .mapboxgl-popup-content .placeTags .designers{     background-color: #E31D39 !important; color: white !important}
 .mapboxgl-popup-content .placeTags .fabrication{     background-color: #263D8C !important; color: white !important}
@@ -80,7 +81,6 @@ h2{
 
 .presentation {
     width: 40%;
-    min-width: 450px;
     overflow: hidden;
     background-color: #f9fbff;
     padding: 3rem;
@@ -88,13 +88,84 @@ h2{
     flex-direction: column;
     justify-content: center;
 }
+
+.presentation .legend{
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.presentation .legend .list{
+    margin: 0;
+    width: 50%;
+}
+.presentation .item{
+    padding: 0.25rem 2rem !important ;
+    position: relative;
+}
+.presentation .item::before{
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    border-radius: 5rem;
+}
+.presentation .item.resources::before{     background-color: #874B97 !important;}
+.presentation .item.designers::before{     background-color: #E31D39 !important;}
+.presentation .item.fabrication::before{     background-color: #263D8C !important;}
+.presentation .item.stores::before{     background-color: #E49D03 !important;}
+.presentation .item.partners::before{     background-color: #D8D300 !important;}
+.presentation .item.industrials::before{     background-color: #53AF32 !important;}
+.presentation .item.incubators::before{     background-color: #1AA056 !important;}
+.presentation .item.research::before{     background-color: #DC4090 !important;}
+
+.presentation .item.active::before{
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-left: 0.2rem;
+    background-color: black !important;
+}
+.presentation .item.pending::before{    
+    border-color: black !important;
+    border-width: 3px;
+     border-style: solid;
+
+    }
+.presentation .item.hub::before{    
+    border-color: black !important;
+    border-width: 2.5px;
+    border-style: dotted;
+}
+
+
+    
 .map {
-    width: 60%;
-    min-width: 450px;
     overflow: hidden;
 }
 
 .contribute{
+    position: fixed;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom : 0;
+    display: none;
+    background-color: transparent;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.contribute.visible{
+    background-color: rgba(0,0,0,0.5);
+    display: block;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.contribute-form{
     border: none;
     position: absolute;
     margin: auto;
@@ -102,7 +173,41 @@ h2{
     left: 0;
     top: 0;
     bottom : 0;
-    border-radius: 1rem;;
-    box-shadow: 0px 5px 5px #888888;
-    display: none !important;
+    border-radius: 1rem;
+    box-shadow: black 50 50;
+}
+@media all { 
+ 
+    
+    .map {
+        width: 60%;
+        height: 100%;
+    }
+    .presentation{
+        height: 100%;
+        width: 40%;
+    }
+    
+} 
+@media all and (max-width: 839px) { 
+    .map {
+        width: 100%;
+        height: 80vh;
+    }
+    .presentation{
+        width: 100%;
+    }
+    
+} 
+@media all and (max-width: 480px) {
+    
+    
+    .map {
+        width: 100%;
+        height: 80vh;
+    }
+    .presentation{
+        width: 100%;
+    }
+    
 }
